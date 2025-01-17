@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root[data-theme="dark"] {
+  --cyber-900: 10 11 14;
+  --cyber-800: 18 20 26;
+  --cyber-700: 26 29 37;
+  --cyber-600: 34 38 47;
+  --cyber-500: 42 47 58;
+  --text-primary: #FFFFFF;
+  --text-secondary: 180 185 197;
+  --text-muted: #6B7280;
+  --neon-blue: 0 243 255;
+  --neon-purple: 189 0 255;
+  --neon-cyan: 0 255 209;
+}
+
+:root[data-theme="light"] {
+  --cyber-900: 248 250 252;
+  --cyber-800: 241 245 249;
+  --cyber-700: 226 232 240;
+  --cyber-600: 203 213 225;
+  --cyber-500: 148 163 184;
+  --text-primary: #0F172A;
+  --text-secondary: 51 65 85;
+  --text-muted: #64748B;
+  --neon-blue: 14 165 233;
+  --neon-purple: 139 92 246;
+  --neon-cyan: 6 182 212;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-cyber-800 text-cyber-text-primary font-sans;
+  }
+}
+
+@layer components {
+  .form-field {
+    @apply space-y-1;
+  }
+
+  .input-label {
+    @apply block text-sm font-medium text-neon-blue;
+  }
+
+  .form-input {
+    @apply block w-full bg-cyber-600/50 border border-cyber-500/50 rounded-md text-cyber-text-primary placeholder:text-cyber-text-secondary/50 focus:border-neon-blue focus:ring-1 focus:ring-neon-blue/50 shadow-cyber-sm;
+  }
+
+  .form-textarea {
+    @apply block w-full bg-cyber-600/50 border border-cyber-500/50 rounded-md text-cyber-text-primary placeholder:text-cyber-text-secondary/50 focus:border-neon-blue focus:ring-1 focus:ring-neon-blue/50 shadow-cyber-sm resize-none;
+  }
+
+  .form-select {
+    @apply block w-full bg-cyber-600/50 border border-cyber-500/50 rounded-md text-cyber-text-primary focus:border-neon-blue focus:ring-1 focus:ring-neon-blue/50 shadow-cyber-sm;
+  }
+
+  .cyber-dropdown {
+    @apply absolute z-50 mt-1 w-full bg-cyber-700/95 backdrop-blur-sm border border-cyber-500/50 rounded-lg shadow-cyber-md overflow-hidden;
+  }
+
+  .cyber-dropdown-item {
+    @apply px-4 py-2 text-sm cursor-pointer text-cyber-text-secondary hover:text-cyber-text-primary hover:bg-cyber-600/50 transition-colors duration-200;
+  }
+
+  .cyber-dropdown-item.active {
+    @apply bg-neon-blue/20 text-neon-blue;
+  }
+
+  .checkbox-label {
+    @apply flex items-center space-x-2 text-sm text-cyber-text-secondary cursor-pointer;
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    @apply rounded border-cyber-500/50 bg-cyber-600/50 text-neon-blue focus:ring-neon-blue/50;
+  }
+
+  .shadow-cyber-sm {
+    @apply shadow-[0_2px_4px_0_rgba(0,243,255,0.1)];
+  }
+
+  .shadow-cyber-md {
+    @apply shadow-[0_4px_6px_-1px_rgba(0,243,255,0.1),0_2px_4px_-1px_rgba(0,243,255,0.06)];
+  }
+
+  .text-glow-sm {
+    text-shadow: 0 0 10px rgb(var(--neon-blue));
+  }
+
+  .cyber-grid {
+    @apply absolute inset-0 bg-[linear-gradient(to_right,rgba(0,243,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,243,255,0.1)_1px,transparent_1px)];
+    background-size: 50px 50px;
+  }
+
+  .dropdown-portal {
+    @apply fixed z-50;
+  }
+}
